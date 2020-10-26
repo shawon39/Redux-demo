@@ -23,15 +23,15 @@ function buyIceCream() {
 	};
 }
 
-const initialState = {
+const initialStateCake = {
 	numOfCakes: 10,
 };
 
-const initialState2 = {
+const initialStateIceCream = {
 	numOfIceCream: 20,
 };
 
-const reducer = (state = initialState, action) => {
+const cakeReducer = (state = initialStateCake, action) => {
 	switch (action.type) {
 		case BUY_CAKE:
 			return {
@@ -45,7 +45,7 @@ const reducer = (state = initialState, action) => {
 	}
 };
 
-const reducer2 = (state = initialState2, action) => {
+const iceCreamReducer = (state = initialStateIceCream, action) => {
 	switch (action.type) {
 		case BUY_ICE_CREAM:
 			return {
@@ -60,8 +60,8 @@ const reducer2 = (state = initialState2, action) => {
 };
 
 const rootReducers = combineReducers({
-	cake: reducer,
-	iceCream: reducer2,
+	cake: cakeReducer,
+	iceCream: iceCreamReducer,
 });
 
 const store = createStore(rootReducers, applyMiddleware(logger));
@@ -72,3 +72,4 @@ store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyIceCream());
 unsubscribe();
+  
